@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/jackc/pgx/v5"
-	"github.com/zonafirmann/go-cloud-inventory/repository"
+	"github.com/zonafirmann/go-cloud-inventory/models/repository"
 )
 
 type CheckoutReq struct {
