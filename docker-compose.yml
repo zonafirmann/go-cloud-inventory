@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: secretpassword # Docker will use this password
       POSTGRES_DB: inventory_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data # Saves data even if container stops
 
