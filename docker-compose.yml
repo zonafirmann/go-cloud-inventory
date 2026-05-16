@@ -1,18 +1,16 @@
-version: '3.8'
-
 services:
   # 1. Database Service (PostgreSQL)
   db:
-    image: postgres:latest
+    image: postgres:16 # <-- PERBAIKAN KRUSIAL: Memaku versi ke 16 yang stabil
     container_name: inventory_db_container
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: secretpassword # Docker will use this password
+      POSTGRES_PASSWORD: secretpassword
       POSTGRES_DB: inventory_db
     ports:
       - "5433:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data # Saves data even if container stops
+      - pgdata:/var/lib/postgresql/data
 
   # 2. API Service (Golang)
   api:
@@ -23,8 +21,7 @@ services:
     depends_on:
       - db
     environment:
-      # Automatically connects to the 'db' container above
-      DATABASE_URL: postgres://postgres:secretpassword@db:5433/inventory_db
+      DATABASE_URL: postgres://postgres:secretpassword@db:5432/inventory_db
 
 volumes:
   pgdata:
