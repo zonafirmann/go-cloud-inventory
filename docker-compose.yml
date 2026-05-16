@@ -24,7 +24,7 @@ services:
       - db
     environment:
       # Automatically connects to the 'db' container above
-      DATABASE_URL: postgres://postgres:secretpassword@db:5432/inventory_db
+      DATABASE_URL: postgres://postgres:secretpassword@db:5433/inventory_db
 
 volumes:
   pgdata:
